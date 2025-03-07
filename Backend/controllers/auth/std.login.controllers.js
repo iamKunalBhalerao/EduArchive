@@ -3,7 +3,10 @@ const stdLoginController = (req, res, next) => {
     res.send("This is Login Router");
     next();
   } catch (error) {
-    next(error);
+    res.status(403).json({
+      error: error.message,
+    });
+    next();
   }
 };
 

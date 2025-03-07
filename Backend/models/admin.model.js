@@ -8,7 +8,7 @@ const adminSchema = new Schema({
     type: String,
     required: true,
   },
-  class: {
+  classNm: {
     type: String,
     required: true,
   },

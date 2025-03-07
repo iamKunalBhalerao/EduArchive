@@ -2,7 +2,10 @@ const adminRegisterController = (req, res, next) => {
   try {
     res.send("This is register controller");
   } catch (error) {
-    next(error);
+    res.status(403).json({
+      error: error.message,
+    });
+    next();
   }
 };
 

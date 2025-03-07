@@ -1,8 +1,26 @@
-const stdRegisterController = (req, res, next) => {
+const StudentModel = require("../../models/student.model");
+
+const stdRegisterController = async (req, res, next) => {
+  const { name, rollNo, classNm, batch, email, password } = req.body;
+
   try {
-    res.send("This is register controller");
+    const student = await StudentModel.create({
+      name,
+      rollNo,
+      classNm,
+      batch,
+      email,
+      password,
+    });
+
+    res.status(200).json({
+      message: "Student Registered Successfully",
+    });
   } catch (error) {
-    next(error);
+    res.status(403).json({
+      error: error.message,
+    });
+    next();
   }
 };
 
