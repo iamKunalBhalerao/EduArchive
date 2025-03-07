@@ -1,4 +1,4 @@
-const loginController = (req, res, next) => {
+const stdLoginController = (req, res, next) => {
   try {
     res.send("This is Login Router");
     next();
@@ -7,4 +7,4 @@ const loginController = (req, res, next) => {
   }
 };
 
-module.exports = loginController;
+module.exports = stdLoginController;

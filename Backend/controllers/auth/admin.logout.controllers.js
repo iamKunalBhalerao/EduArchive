@@ -1,4 +1,4 @@
-const logoutController = (req, res) => {
+const adminLogoutController = (req, res) => {
   try {
     res.send("This is Logout Page");
   } catch (error) {
@@ -6,4 +6,4 @@ const logoutController = (req, res) => {
   }
 };
 
-module.exports = logoutController;
+module.exports = adminLogoutController;

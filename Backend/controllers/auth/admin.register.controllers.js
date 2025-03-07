@@ -1,4 +1,4 @@
-const registerController = (req, res, next) => {
+const adminRegisterController = (req, res, next) => {
   try {
     res.send("This is register controller");
   } catch (error) {
@@ -6,4 +6,4 @@ const registerController = (req, res, next) => {
   }
 };
 
-module.exports = registerController;
+module.exports = adminRegisterController;
