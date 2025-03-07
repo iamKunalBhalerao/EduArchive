@@ -36,7 +36,7 @@ adminRouter.post("/login", adminLoginController);
 adminRouter.post("/logout", adminLogoutController);
 
 // Admin Routes
-adminRouter.get("/:id", adminController);
+adminRouter.get("/", adminController);
 adminRouter.get("/documents", documentsController);
 adminRouter.get("/images", imageController);
 adminRouter.get("/videos", videoController);

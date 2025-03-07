@@ -1,6 +1,8 @@
 const studentController = (req, res, next) => {
   try {
-    console.log("This is Student Page");
+    res.status(200).json({
+      message: "Student is me",
+    });
   } catch (error) {
     res.status(403).json({
       error: error.message,
