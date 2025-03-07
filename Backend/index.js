@@ -2,17 +2,17 @@ const express = require("express");
 
 const connectDB = require("./db/db");
 const adminRouter = require("./routes/admin.routes.js");
-const loginRouter = require("./routes/login.routes.js");
-const registerRouter = require("./routes/register.routes.js");
+const studentRouter = require("./routes/student.routes.js");
+const authRouter = require("./routes/auth.routes.js");
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/register", registerRouter);
-app.use("/api/login", loginRouter);
+app.use("/api/auth", authRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/student", studentRouter);
 
 connectDB();
 app.listen(3000, () => {
