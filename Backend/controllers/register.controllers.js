@@ -1,5 +1,9 @@
-const registerController = (req, res) => {
-  res.send("This is register controller");
+const registerController = (req, res, next) => {
+  try {
+    res.send("This is register controller");
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports = registerController;

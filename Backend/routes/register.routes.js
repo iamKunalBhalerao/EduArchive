@@ -1,8 +1,8 @@
 const { Router } = require("express");
 
-const registerController = require("../controllers/register.controllers");
-
 const registerRouter = Router();
+
+const registerController = require("../controllers/register.controllers.js");
 
 registerRouter.get("/", registerController);
 
