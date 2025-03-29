@@ -3,6 +3,6 @@ const teacherRouter = Router();
 
 const tchrRegister = require("../controllers/teacher.controller");
 
-teacherRouter.post("/register", tchrRegister);
+teacherRouter.post("/signup", tchrRegister);
 
 module.exports = teacherRouter;
