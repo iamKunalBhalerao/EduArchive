@@ -1,22 +1,19 @@
-const mongoose = require("mongoose");
-const { MONGO_URI, NODE_ENV } = require("../config/env.config");
-
-if (!MONGO_URI) {
-  throw new Error(
-    "please define the MONGO_URI in environment variable inside .env.<development/production>.local"
-  );
-}
+import mongoose from "mongoose";
+import { databaseNM } from "../contants.js";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(MONGO_URI);
-    console.log(`Connected to Database ${NODE_ENV} mode`);
-  } catch (err) {
-    res.status(403).json({
-      message: "Failed to connect to the database",
-      error: err.message,
-    });
+    const connectionInstance = await mongoose.connect(
+      `${process.env.MONGO_URI}/${databaseNM}`
+    );
+    console.log(
+      `Connected to Database !! DB HOST:${connectionInstance.connection.host}`
+    );
+  } catch {
+    (err) => {
+      console.log("MONGODB Connection FAILED : ", err);
+      process.exit(1);
+    };
   }
 };
-
-module.exports = connectDB;
+export { connectDB };
