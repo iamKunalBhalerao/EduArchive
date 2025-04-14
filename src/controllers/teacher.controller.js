@@ -7,7 +7,7 @@ const tchrRegister = async (req, res, next) => {
   const { name, email, password, branch, subject, classNm } = req.body;
 
   const requireBody = zod.object({
-    name: zod.string().min(2).max(120),
+    name: zod.string().min(2).max(120).nonempty(),
     email: zod.string().min(3).max(150).email(),
     branch: zod.string().nonempty(),
     subject: zod.string().nonempty(),
@@ -31,7 +31,6 @@ const tchrRegister = async (req, res, next) => {
   });
 
   const parseDataWithSuccess = requireBody.safeParse(req.body);
-
   if (!parseDataWithSuccess.success) {
     res.status(403).json({
       message: "Invalid Credentisls !",
